@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b29dcd49b52e374588927331e1ce34c, type: 3}
+  m_Name: SnakeSettings
+  m_EditorClassIdentifier: 
+  <Speed>k__BackingField: 5
+  <Material>k__BackingField: {fileID: 2100000, guid: 237a8639e9a44f34c9d369a2e523e3b1, type: 2}
+  <StartTailLenght>k__BackingField: 1
+  <HeadRotationSpeed>k__BackingField: 20
+  <HeadRotationSpeedToPLane>k__BackingField: 2
+  <DistanceBetweenTail>k__BackingField: 0.5

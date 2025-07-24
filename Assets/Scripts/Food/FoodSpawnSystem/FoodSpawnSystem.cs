@@ -18,6 +18,22 @@ public class FoodSpawnSystem
         
     }
 
+    public void SpawnFoodInPositions(List<Vector3> positions)
+    {
+        for (int i = 0; i < positions.Count; i++)
+        {
+            var newFood = _spawnedFood.Find(x=>x.IsCollected);
+            if (newFood == null)
+            {
+                newFood = _foodFactory.Create(_settings.FoodViewPfb);
+            }
+            newFood.SetActive(true);
+            newFood.Init(SetRandomPosition);
+            SetPosition(newFood, positions[i]);
+            _spawnedFood.Add(newFood);
+        }
+    }
+
     public void SpawnFoodInRandomPosition()
     {
         for (int i = 0; i < _settings.CountInStart; i++)
@@ -46,6 +62,12 @@ public class FoodSpawnSystem
         var newPosition = GetRandomPosition();
         food.FoodView.transform.position = newPosition;
         food.FoodView.transform.up = (newPosition - _earthCollider.transform.position).normalized;
+    }
+    private void SetPosition(IFood food, Vector3 position)
+    {
+        var newPosition = GetRandomPosition();
+        food.FoodView.transform.position = position;
+        food.FoodView.transform.up = (position - _earthCollider.transform.position).normalized;
     }
 
     private bool GetRandomPointOnColliderSurface(out Vector3 pointSurface)

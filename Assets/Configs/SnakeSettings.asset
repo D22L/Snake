@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: SnakeSettings
   m_EditorClassIdentifier: 
   <Speed>k__BackingField: 5
-  <Material>k__BackingField: {fileID: 2100000, guid: 237a8639e9a44f34c9d369a2e523e3b1, type: 2}
   <StartTailLenght>k__BackingField: 1
   <HeadRotationSpeed>k__BackingField: 20
   <HeadRotationSpeedToPLane>k__BackingField: 2
   <DistanceBetweenTail>k__BackingField: 0.5
+  <SkinColor>k__BackingField: {r: 0.2509804, g: 0.5803922, b: 1, a: 1}

@@ -4,15 +4,6 @@ using UnityEngine;
 
 public class SnakeTailView : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [field: SerializeField] public Renderer Render { get; private set; }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

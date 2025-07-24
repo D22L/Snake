@@ -4,5 +4,23 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Loader_test.unity
+    guid: 39411732eaaceca4d8f498010c01c9c9
+  - enabled: 1
+    path: Assets/Scenes/Apple_Level 1.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/Apple_Level 2.unity
+    guid: a0fd5b6ba376f0344ac1ab8062133e02
+  - enabled: 1
+    path: Assets/Scenes/Banana_Level 3.unity
+    guid: 52046103f41b81b49be61d23f01a0678
+  - enabled: 1
+    path: Assets/Scenes/Banana_Level 4.unity
+    guid: 305354f2627cbb2439674450bac1ee68
+  - enabled: 1
+    path: Assets/Scenes/Banana_Level 5.unity
+    guid: 457644aaa5cd82640ad10a134fbffde4
   m_configObjects: {}

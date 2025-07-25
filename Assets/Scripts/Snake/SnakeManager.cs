@@ -2,6 +2,7 @@ using Cysharp.Threading.Tasks;
 using System.Collections.Generic;
 using UniRx;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SnakeManager
 {
@@ -15,6 +16,7 @@ public class SnakeManager
     private IJoystick _joystick;
     private FoodSpawnSystem _foodSpawnSystem;
 
+    public event UnityAction<int> onEndGame;
     public IReadOnlyList<ISnake> Snakes => _snakes;
 
     public SnakeManager(SnakeView snakePfbAI, LevelConfig levelConfig, SnakeView mainSnake, SnakeSettings mainSnakeSettings, IJoystick joystick, FoodSpawnSystem foodSpawnSystem)
@@ -34,6 +36,7 @@ public class SnakeManager
     {
         MainSnake mainSnake = new MainSnake(_mainSnake, _mainSnakeSettings, _joystick);
         _snakes.Add(mainSnake);
+        mainSnake.IsDead.AsObservable().Subscribe(state => OnSnakeDead(state)).AddTo(mainSnake.View);
         return mainSnake;
     }
 
@@ -66,6 +69,20 @@ public class SnakeManager
             }
 
             _foodSpawnSystem.SpawnFoodInPositions(tilePos);
+        }
+
+        if (deadSnake is MainSnake mainSnake)
+        {
+            var starCount = 0;
+            var tailLength = mainSnake.TailParts.Count;
+            if (tailLength > 50 && tailLength < 100) starCount = 1;
+            else if (tailLength >= 100) starCount = 2;
+
+            onEndGame?.Invoke(starCount);
+        }
+        else if (_snakes.Count == 1 && _snakes[0] is MainSnake)
+        {
+            onEndGame?.Invoke(3);
         }
     }
 

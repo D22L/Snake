@@ -26,6 +26,7 @@ public class Loader : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
 
         IsInited = true;
+        _mainUI.ShowWindow<MainMenuUI>();
     }
     private void OnEnable()
     {

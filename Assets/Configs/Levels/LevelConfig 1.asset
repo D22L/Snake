@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbb6ee10e98db8c428ae926b214a192d, type: 3}
   m_Name: LevelConfig 1
   m_EditorClassIdentifier: 
+  <SceneName>k__BackingField: Apple_Level 1
+  <NextLevelIcon>k__BackingField: {fileID: 21300000, guid: e295ae95d3fdd6740b8e2618e460c7ef, type: 3}
+  <CountFoodForOpenNextLevel>k__BackingField: 500
   <EnemiesSettings>k__BackingField:
   - {fileID: 11400000, guid: 358b5045f039e164d84c86421c0ee179, type: 2}
   - {fileID: 11400000, guid: 0dd695861884c564a89e14a82e5519f2, type: 2}
+  - {fileID: 11400000, guid: 39d5cdca0fab73141a56ed2280bf552f, type: 2}

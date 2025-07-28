@@ -11,10 +11,11 @@ public class SnakeManager
     private SnakeView _aiViewPfb;
     private LevelConfig _levelConfig;
     
-    private SnakeView _mainSnake;
+    private SnakeView _mainSnakeView;
     private SnakeSettings _mainSnakeSettings;
     private IJoystick _joystick;
-    private FoodSpawnSystem _foodSpawnSystem;
+    private FoodSpawnSystem _foodSpawnSystem;    
+    private MainSnake _mainSnake;
 
     public event UnityAction<int> onEndGame;
     public IReadOnlyList<ISnake> Snakes => _snakes;
@@ -26,7 +27,7 @@ public class SnakeManager
 
         _aiViewPfb = snakePfbAI;
         _levelConfig = levelConfig;
-        _mainSnake = mainSnake;
+        _mainSnakeView = mainSnake;
         _mainSnakeSettings = mainSnakeSettings;
         _joystick = joystick;
         _foodSpawnSystem = foodSpawnSystem;
@@ -34,10 +35,10 @@ public class SnakeManager
 
     public MainSnake InitMainSnake()
     {
-        MainSnake mainSnake = new MainSnake(_mainSnake, _mainSnakeSettings, _joystick);
-        _snakes.Add(mainSnake);
-        mainSnake.IsDead.AsObservable().Subscribe(state => OnSnakeDead(state)).AddTo(mainSnake.View);
-        return mainSnake;
+        _mainSnake = new MainSnake(_mainSnakeView, _mainSnakeSettings, _joystick);
+        _snakes.Add(_mainSnake);
+        _mainSnake.IsDead.AsObservable().Subscribe(state => OnSnakeDead(state)).AddTo(_mainSnake.View);
+        return _mainSnake;
     }
 
     public async UniTask SpawnAI(MeshFilter meshFilter)

@@ -7,4 +7,6 @@ public interface IJoystick
 
     UniTask Init();
 
+    void Disable();
+
 }

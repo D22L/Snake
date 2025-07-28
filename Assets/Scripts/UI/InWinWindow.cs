@@ -13,24 +13,27 @@ public class InWinWindow : ABaseUiWindow
     [SerializeField] private TextMeshProUGUI _foodCounter;
     [SerializeField] private Image _targetNextLevel;
     [SerializeField] private Image _targetNextLevelProgress;
-    [SerializeField] private Button _loadMenuButton;
+    [SerializeField] private Button _loadMenuButton;    
 
+    public Button LoadMenuButton => _loadMenuButton;
     private void OnEnable()
     {
         _stars.ForEach(x=>x.SetActive(false));
-        _loadMenuButton.onClick.AddListener(LoadMenu);
+        
     }
 
     private void OnDisable()
     {
-        _loadMenuButton.onClick.RemoveListener(LoadMenu);
+        _loadMenuButton.onClick.RemoveAllListeners();
     }
 
-    private void LoadMenu()
+
+    public void SetTarget(Sprite sprite)
     {
-        SceneManager.LoadScene(0);
+        if (sprite == null) _targetNextLevel.gameObject.SetActive(false);
+
+        _targetNextLevel.sprite = sprite;
     }
-    public void SetTarget(Sprite sprite) => _targetNextLevel.sprite = sprite;
 
     public async UniTask ShowStars(int count)
     {
@@ -42,10 +45,15 @@ public class InWinWindow : ABaseUiWindow
         }
     }
 
-    public void StartScoring(int score, float targetProgress)
+    public void SetProgressAndScore(int score, float oldProgress)
     {
         _foodCounter.text = score.ToString();
-        _targetNextLevelProgress.DOFillAmount(targetProgress,2f);
+        _targetNextLevelProgress.fillAmount =  1f - oldProgress;
+    }
+
+    public void StartScoring(int score, float targetProgress)
+    {                
+        _targetNextLevelProgress.DOFillAmount( 1f - targetProgress,2f);
         DOTween.To(() => score, x => score = x, 0, 2f)
                 .OnUpdate(() =>
                 {

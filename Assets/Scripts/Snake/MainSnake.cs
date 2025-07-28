@@ -7,12 +7,20 @@ using Cysharp.Threading.Tasks;
 public class MainSnake : ABaseSnake
 {
     public SnakeView View => view;
-    private IJoystick _joystick;    
+    private IJoystick _joystick;
+    private bool _isStoped;
     public MainSnake(SnakeView viewValue, SnakeSettings settings, IJoystick joystick) : base(viewValue, settings)
     {
         _joystick = joystick;
 
         Init();
+    }
+
+    protected override void Die()
+    {
+        Camera.main.transform.parent = null;
+        base.Die();
+       
     }
 
     private void Init()
@@ -26,9 +34,13 @@ public class MainSnake : ABaseSnake
 
         Observable.EveryUpdate().Subscribe(_ =>
         {
-            if (IsDead.Value) return;
+            if (IsDead.Value || _isStoped) return;
             Move();
         });
     }
 
+    public void Stop()
+    {
+        _isStoped = true;
+    }
 }

@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: e295ae95d3fdd6740b8e2618e460c7ef, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -404,7 +404,6 @@ GameObject:
   - component: {fileID: 1034999584457529657}
   - component: {fileID: 5090140876696495315}
   - component: {fileID: 8862672712686459607}
-  - component: {fileID: 7549139534903826847}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -428,8 +427,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 442.65, y: -127.6}
-  m_SizeDelta: {x: 446.52, y: 255.2}
+  m_AnchoredPosition: {x: 581.065, y: -127.6}
+  m_SizeDelta: {x: 723.349, y: 255.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5090140876696495315
 CanvasRenderer:
@@ -528,20 +527,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &7549139534903826847
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2635058585203504522}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_HorizontalFit: 2
-  m_VerticalFit: 0
 --- !u!1 &3023835467538751093
 GameObject:
   m_ObjectHideFlags: 0
@@ -1060,7 +1045,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6792453, g: 0.6792453, b: 0.6792453, a: 1}
+  m_Color: {r: 0.6792453, g: 0.6792453, b: 0.6792453, a: 0.5803922}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1733,7 +1718,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <windowType>k__BackingField: 0
   <PlayButton>k__BackingField: {fileID: 5646488497820637512}
-  <CoinText>k__BackingField: {fileID: 2944104041147201266}
+  <StarText>k__BackingField: {fileID: 2944104041147201266}
 --- !u!1 &7022045123064319322
 GameObject:
   m_ObjectHideFlags: 0
@@ -2007,8 +1992,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -806}
-  m_SizeDelta: {x: 665.91, y: 255.96301}
+  m_AnchoredPosition: {x: 26, y: -806}
+  m_SizeDelta: {x: 942.73895, y: 255.96301}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3890895672086109116
 MonoBehaviour:

@@ -7,9 +7,11 @@ using UnityEngine.SceneManagement;
 public class Loader : MonoBehaviour
 {
     [SerializeField] private MainUI _mainUI;
+    [SerializeField] private SaveSystem _saveSystem;
+    [SerializeField] private List<LevelConfig> _levels;
 
     public bool IsInited { get; private set; }
-    private SaveSystem _saveSystem;
+    
     private readonly int _maxCountLevelScene = 5;
     private void Awake()
     {
@@ -20,44 +22,47 @@ public class Loader : MonoBehaviour
             return;
         }
 
-        _saveSystem = new SaveSystem();
+        _saveSystem.Load();
 
-        //LoadNextLevel();
+   
         DontDestroyOnLoad(this.gameObject);
 
         IsInited = true;
         _mainUI.ShowWindow<MainMenuUI>();
     }
+
     private void OnEnable()
     {
         var menuUI =_mainUI.ShowWindow<MainMenuUI>();
         menuUI.PlayButton.onClick.AddListener(Play);
+        menuUI.StarText.text = _saveSystem.saveData.CountStars.ToString();
     }
 
     private void Play()
     {
-        LoadNextLevel();
+        int levelIndex = _saveSystem.saveData.OpenedLevel % _levels.Count;        
+        var sceneName = _levels[levelIndex].SceneName;
+        LoadNextLevel(sceneName);
         _mainUI.ShowWindow<InGameWIndow>();
+        
     }
 
-
-
+    public bool isMaxLevel()
+    {
+        return _saveSystem.saveData.OpenedLevel >= _levels.Count;
+    }
     public void LevelUp()
     {
-        _saveSystem.saveData.Level++;
+        _saveSystem.saveData.OpenedLevel++;
         _saveSystem.Save();
     }
 
-    public void LoadNextLevel()
-    {        
-           var level = _saveSystem.saveData.Level;
-        var sceneIndex = level % (_maxCountLevelScene+1);
-        sceneIndex = Mathf.Clamp(sceneIndex,1,_maxCountLevelScene);
-        SceneManager.LoadScene(sceneIndex);
-    }
-
-    public void Restart()
+    public void LoadNextLevel(string sceneName)
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(sceneName);
+    }
+    public void LoadMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 }

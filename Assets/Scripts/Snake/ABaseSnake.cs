@@ -176,7 +176,7 @@ public abstract class ABaseSnake: ISnake
         view.transform.rotation = Quaternion.Slerp(view.transform.rotation, targetRotation, Time.deltaTime * settings.HeadRotationSpeedToPLane);       
     }
 
-    protected void Die()
+    protected virtual void Die()
     {
         if (IsDead.Value) return;
 

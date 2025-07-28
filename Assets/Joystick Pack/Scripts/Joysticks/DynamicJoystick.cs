@@ -60,4 +60,9 @@ public class DynamicJoystick : Joystick, IJoystick
         
         await UniTask.CompletedTask;
     }
+
+    public void Disable()
+    {
+        gameObject.SetActive(false);
+    }
 }

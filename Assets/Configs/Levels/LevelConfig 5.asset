@@ -12,8 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbb6ee10e98db8c428ae926b214a192d, type: 3}
   m_Name: LevelConfig 5
   m_EditorClassIdentifier: 
+  <SceneName>k__BackingField: Banana_Level 5
+  <NextLevelIcon>k__BackingField: {fileID: 1336561255, guid: a5e645d0b2507ac42807ef8e886f7d45, type: 3}
+  <CountFoodForOpenNextLevel>k__BackingField: 10000
   <EnemiesSettings>k__BackingField:
   - {fileID: 11400000, guid: 358b5045f039e164d84c86421c0ee179, type: 2}
   - {fileID: 11400000, guid: 0dd695861884c564a89e14a82e5519f2, type: 2}
   - {fileID: 11400000, guid: d9abbb55690aeff4dabee140f7c56d4c, type: 2}
   - {fileID: 11400000, guid: 9a928e75834085847a708e88456fbac0, type: 2}
+  - {fileID: 11400000, guid: 39d5cdca0fab73141a56ed2280bf552f, type: 2}

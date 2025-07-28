@@ -8,12 +8,6 @@ public class SaveSystem : MonoBehaviour
 
     public SaveData saveData { get; private set; }
 
-    public SaveSystem ()
-    {
-        Load();
-
-    }
-
     public void Save()
     {
         var str = JsonUtility.ToJson(saveData);
@@ -38,5 +32,8 @@ public class SaveSystem : MonoBehaviour
 [System.Serializable]
 public class SaveData
 {
-    public int Level = 1;
+    public int OpenedLevel = 0;
+    public float LastProgress = 0f;
+    public int CountStars = 0;
+    public int LeftoverFood = 0;    
 }

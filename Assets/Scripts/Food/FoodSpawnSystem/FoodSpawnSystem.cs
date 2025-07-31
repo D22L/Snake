@@ -77,7 +77,7 @@ public class FoodSpawnSystem
 
         Vector3 point = Random.insideUnitSphere * 1000;
         bool pointFound = false;        
-        if (Physics.Raycast(point, _earthCollider.transform.position - point, out hit, Mathf.Infinity))
+        if (Physics.Raycast(point, _earthCollider.transform.position - point, out hit, Mathf.Infinity,layerMask: LayerMask.GetMask("Earth")))
         {
             pointOnSurface = hit.point;
             pointFound = true;

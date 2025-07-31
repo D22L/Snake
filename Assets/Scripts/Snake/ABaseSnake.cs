@@ -89,7 +89,7 @@ public abstract class ABaseSnake: ISnake
         foodCollector.OnCollect.Subscribe(_ => {
             var tailPart = _tailFactory.Create(view.TailPfb);
             tailPart.Render.materials[0].SetColor("_Color",settings.SkinColor);
-            var pos = tailParts[tailParts.Count - 1].transform.position - tailParts[tailParts.Count - 1].transform.forward * settings.DistanceBetweenTail;
+            var pos = tailParts[tailParts.Count - 1].transform.position;// - tailParts[tailParts.Count - 1].transform.forward * settings.DistanceBetweenTail;
             tailPart.transform.position = pos;
             tailPart.transform.forward = tailParts[tailParts.Count - 1].transform.forward;
             tailParts.Add(tailPart);
@@ -148,7 +148,7 @@ public abstract class ABaseSnake: ISnake
 
             if ((currentPos - target).magnitude > settings.DistanceBetweenTail)
             {
-                tailParts[i].transform.position = Vector3.MoveTowards(currentPos, target, Time.deltaTime * settings.Speed * 1.5f);
+                tailParts[i].transform.position = Vector3.Lerp(currentPos, target, Time.deltaTime * settings.Speed * 1.5f);
                 tailParts[i].transform.rotation = Quaternion.Lerp(currentRot, rotation, Time.deltaTime * settings.HeadRotationSpeed);
             }
 
